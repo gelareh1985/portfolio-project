@@ -13,16 +13,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #load_dotenv(BASE_DIR / '.env')
 
-# import environ
-# env = environ.Env()
-# environ.Env.read_env()
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -31,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-oy=n@e(8x6&jl@)!g3#n7+^m6h(ge&%v@0p!xdy-euvoloqu(*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -94,16 +94,16 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "portfoliodb",
-        "USER":"postgres",
-        "PASSWORD":"django1234",
-        "HOST":"localhost",
-        "PORT":"5432",
-    },
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "portfoliodb",
+#         "USER":"postgres",
+#         "PASSWORD":"django1234",
+#         "HOST":"localhost",
+#         "PORT":"5432",
+#     },
+# }
 # DATABASES = {
 #     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600),
 # }
@@ -112,13 +112,11 @@ DATABASES = {
 
 
 """Render POSTgreSQL Database (live)"""
-"""import dj_database_url
-
-DATABASE_URL = "postgres://myportfoliodatabase_user:KNsByg2Gak0UeJC6BRheAyFoONdzBQyL@dpg-ciik1qiip7vpelrnbg80-a.frankfurt-postgres.render.com/myportfoliodatabase"
 DATABASES = {
-    "default": dj_database_url.parse(env(os.environ.get(DATABASE_URL)))
-    
-}"""
+    "default": dj_database_url.parse(env("DATABASE_URL")) 
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
