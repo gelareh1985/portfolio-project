@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# load_dotenv(BASE_DIR / '.env')
+#load_dotenv(BASE_DIR / '.env')
 
 # import environ
 # env = environ.Env()
@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "jobs",
+    "django_tables2",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,7 @@ MEDIA_ROOT = BASE_DIR
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
